@@ -15,13 +15,16 @@ namespace Practice
         public RedditApp()
         {
 
-            var token = "******";  //Token to login into Reddit's Api
+            /*var token = "******";  //Token to login into Reddit's Api
 
             reddit = new Reddit("*******", "******"); //Bot's login information 
 
             reddit.InitOrUpdateUser();
 
-            authenticated = reddit.User != null;
+            authenticated = reddit.User != null;*/
+
+            Login newLogin = new Login();
+
             Subreddit sub = null;
             if (!authenticated)
             {
