@@ -9,7 +9,8 @@ namespace Practice
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            RedditApp reddit = new RedditApp();
+
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Practice
     class RedditApp
     {
         public bool authenticated = false;
-        Reddit reddit = null;
+       public Reddit reddit = null;
         public RedditApp()
         {
 
@@ -25,10 +25,10 @@ namespace Practice
             Subreddit sub = null;
             if (!authenticated)
             {
-                sub = reddit.GetSubreddit("Illisontestbot");
+                sub = reddit.GetSubreddit("Illisontestbot"); //GetSubreddit(string);
             }
             var comments = sub.Comments.Take(50); //Last 50 comments. 
-            List<RedditCommentModel> model = new List<RedditCommentModel>();  
+            List<RedditCommentModel> model = new List<RedditCommentModel>();  //uses the view model I created to store the comments 
             foreach (var comment in comments)     
             {
                 if (comment.Body.ToLower().Contains("this is a test"))
@@ -40,17 +40,17 @@ namespace Practice
             StringBuilder example = new StringBuilder();    // this string example is the reply the bot will post after it finds a comment that contains "this is a test".
             example.Append("This is a test of my bot in my private subreddit.");
             // public class FileStream : System.IO.Stream 
-            FileStream fs3 = new FileStream("botexample.txt", FileMode.OpenOrCreate);
+            FileStream fs3 = new FileStream("botexample.txt", FileMode.OpenOrCreate);  //creates a botexample.txt file to store the comments.
             fs3.Close();
             string postCount = File.ReadAllText("botexample.txt");
-            int newPostCount = 0;
-            if (string.IsNullOrEmpty(postCount))
+            int newPostCount = 0;                      
+            if (string.IsNullOrEmpty(postCount)) 
             {
                 newPostCount = 1;
             }
             else
             {
-                newPostCount = Convert.ToInt32(postCount);
+                newPostCount = Convert.ToInt32(postCount);    // adds the number of posts to the newpostcount variable. the variable newpostcount always starts at 1;
             }
             example.Replace("X", newPostCount.ToString());
 
